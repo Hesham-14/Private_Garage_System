@@ -6,5 +6,5 @@ Welcome to the Simple Garage System repository. This project showcases an innova
 <br>
 
 ### 🛠 This project's currently in the final stage and files are being prepared for uploading.
-### Still got some error in the process of transmitting multiple data types via SPI, I'm currently working on a solution for it.
+#### Still got some error in the process of transmitting multiple data types via SPI, I'm currently working on a solution for it.
 For any inquiries regarding it, please contact me :)
