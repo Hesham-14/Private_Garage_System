@@ -1,0 +1,13 @@
+LCD.c:20:6:LCD_itoa	24	static
+LCD.c:35:13:ftoa	24	static
+LCD.c:53:6:HAL_LCD_Set_Courser	24	static
+LCD.c:71:6:check_line	8	static
+LCD.c:87:6:LCD_clear_screen	8	static
+LCD.c:97:6:ENABLE_cycle	8	static
+LCD.c:105:6:delay_ms	24	static
+LCD.c:124:6:HAL_LCD_Init	40	static
+LCD.c:181:6:HAL_LCD_Send_Command	48	static
+LCD.c:215:6:HAL_LCD_Send_Data	48	static
+LCD.c:255:6:HAL_LCD_Send_Float	24	static
+LCD.c:269:6:HAL_LCD_Send_Number	24	static
+LCD.c:283:6:HAL_LCD_Send_String	16	static
