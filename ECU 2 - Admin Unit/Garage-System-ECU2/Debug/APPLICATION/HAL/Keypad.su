@@ -1,0 +1,3 @@
+Keypad.c:30:6:HAL_keypad_init	16	static
+Keypad.c:60:7:HAL_keypad_get_key	16	static
+Keypad.c:86:9:HAL_Keypad_Wait_For_Input	16	static

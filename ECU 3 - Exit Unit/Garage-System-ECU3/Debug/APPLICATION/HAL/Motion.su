@@ -1,0 +1,2 @@
+Motion.c:16:6:Motion_Sensor_Init	16	static
+Motion.c:25:4:Motion_Sensor_Get_State	16	static
