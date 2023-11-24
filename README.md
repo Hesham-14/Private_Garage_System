@@ -30,14 +30,14 @@ Furthermore, administrators have access to a dedicated dashboard. Using a keypad
 
 ## 🛠 Development
 
-The system was developed in adherence to the Agile Scrum methodology and managed using Jira software. Over two releases, the solution has been refined to its current state:
+The system was developed in adherence to the Agile Scrum methodology and managed using Jira software. Over one release until now, the solution has been refined to its current state:
 
-- **Release 1 (2 Sprints)**
-    1. Design and implement the MCAL (Microcontroller Abstraction Layer) for the three microcontrollers.
-    2. Implementation of the HAL (Hardware Abstraction Layer) and the application layer.
-
-- **Release 2 (1 Sprint)**
-    The refinement of various system functionalities and the finalization of the application layer.
+- **Release 1 (3 Sprints)**
+    1. Design and implement the MCAL (Microcontroller Abstraction Layer) & HAL (Hardware Abstraction Layer) for the three MCUs.
+    2. Implementation of the refinement of various system functionalities and the finalization of the application layer.
+    3. Testing the system through some unit & system tests.
+ 
+![Jira Timeline](https://github.com/Hesham-14/Private_Garage_System/blob/main/Documents/JIRA%20Timeline.png)
 
 This Agile approach ensured iterative improvement and effective incorporation of feedback, leading to a reliable and efficient garage management system.
 
@@ -53,9 +53,11 @@ This Agile approach ensured iterative improvement and effective incorporation of
 The video will provide a comprehensive walk-through of a typical user story, showcasing the ease of use and functionalities of our system. From scanning an RFID at the entrance to seamless communication between ECUs, witness firsthand how our system transforms garage operations.
 
 ## 🚀 Future Improvements
-
-- Integrate STM32 with Atmega32 to establish communication between 2 different architectures.
-- Integration of a centralized database for more extensive ID storage.
+![System Releases](https://github.com/Hesham-14/Private_Garage_System/blob/main/Documents/JIRA%20System%20Releases.png)
+- **Release 2**
+    Including an EEPROM to the admin dashboard unit to contain all the database.
+- **Release 3**
+    Integrating STM32 with Atmega32 to establish communication between 2 different architectures.
 
 
 Thank you for exploring the Simple Garage System. Your feedback and contributions are always welcome!
