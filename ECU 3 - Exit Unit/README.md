@@ -43,4 +43,4 @@ Upon ID capture, the Exit ECU initiates a query process with the Main ECU. This 
   - Should the ID prove inauthentic, the gate remains firmly shut.
   - While the vehicle is not granted permission to exit, an urgent notification is routed to the admin dashboard, highlighting the unauthorized exit attempt.
   
-Regardless of the ID's validity, the ATmega32 ensures that every exit attempt is duly recorded and the admin dashboard is updated promptly.
+Regardless of the ID's validity, the ECU3 ensures that every exit attempt is duly recorded and the admin dashboard is updated promptly.
