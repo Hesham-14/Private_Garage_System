@@ -1,50 +1,45 @@
-# 🚧 ECU1 Entrance Gate Functionality - Garage Management System
+# 🚧 ECU2 Admin & Main ECU Functionality
 
-![1](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%201%20-%20Entrance%20Unit/Documents/ECU1%20Includes.png)
+![1](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%202%20-%20Admin%20Unit/Documents/ECU2%20Includes.png)
 
 ## *Story*
-> The main goal of ECU1 is to control the entrance gate by reading the ID of the Driver using an RFID card based on UART and sending the driver ID to the admin dashboard ECU2 through SPI when ECU2 Responds with a valid ID then ECU1 starts to open the entrance gate using Fast PWM Mode. While the PIR sensor reads there is a vehicle under the entrance gate, the entrance gate will never close until the vehicle exits the area under the entrance gate and the PIR sensor reads LOW. when the entrance gate is open the RFID reader can't read any data until the gate is closed.
-> In case of an invalid ID, the entrance gate never opens and a warning alarm runs for a limited time.
+> The main goal of ECU2 is controlling the admin privileges to add, delete, and edit driver data the system may have more than one admin each one of them has its username and password. ECU2 is connected to an LCD to display the different statuses of the garage and control driver data and shows the number of available slots in the garage, an existing Terminal for admins to help them navigate on LCD and edit any driver information.
 
 
 ## 🛠 Technologies & Hardware
 
 - **Architecture**: Developed on the robust STM32F103C6 microcontroller platform
-- **RFID**: Enables efficient, contactless ID scanning.
+- **LCD Scress**: Working in harmony with the STM32F103C6, it ensures administrators experience a lucid and dynamic interaction.
 - **USART Protocol**: Integrated with STM32F103C6 for seamless RFID-ECU interactions.
 - **SPI Protocol**: Facilitated by STM32F103C6 for inter-ECU communication.
-- **Motion Sensor**: Connected to STM32F103C6 for real-time vehicle detection.
   
-## *System Statistical Analysis Results*
-![System Calls](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%201%20-%20Entrance%20Unit/Documents/ECU1%20Charts.png)
+## *System Statistical Analysis Charts*
+![System Calls](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%202%20-%20Admin%20Unit/Documents/ECU2%20Charts.png)
 ### *System Calls & Includes*
-![2](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%201%20-%20Entrance%20Unit/Documents/ECU1%20Calls.png)
+![2](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%202%20-%20Admin%20Unit/Documents/ECU2%20Calls.png)
 ### *System Depends*
-![3](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%201%20-%20Entrance%20Unit/Documents/ECU1%20DependsON.png)
+![3](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%202%20-%20Admin%20Unit/Documents/ECU2%20DependsON.png)
 ### *System Simple UML Sequence Diagram*
-![4](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%201%20-%20Entrance%20Unit/Documents/ECU1%20UML%20Simple%20SequenceDiagram.png)
+![4](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%202%20-%20Admin%20Unit/Documents/ECU2%20Simple%20UML%20Sequence%20Diagram.png)
 > [!NOTE]
-> For the full UML Sequence Diagram, please click [here](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%201%20-%20Entrance%20Unit/Documents/ECU1%20UML%20Simple%20SequenceDiagram.png).
+> For the full UML Sequence Diagram, please click [here](https://github.com/Hesham-14/Private_Garage_System/blob/main/ECU%202%20-%20Admin%20Unit/Documents/ECU2%20UML%20SequenceDiagram.png).
 
 
 ## 📖 Detailed Overview
 
-### Step 1: User Approach and ID Scanning
-When a user seeks to access the garage, they present their ID to the RFID scanner. This ID scanning action is driven by the USART module integrated with the ECU1. 
+### Step 1: Admin Dashboard Authentication
+Accessing the specialized administrative dashboard on the Main ECU requires validation through a secure password. The STM32F103C6 ensures this access mechanism remains impenetrable, allowing only authorized personnel.
 
-### Step 2: Entrance ECU to Main ECU Communication
-On capturing the ID, the Entrance ECU1 starts communicating with ECU2 **"The main one"**. This communication relies on the SPI protocol, facilitated by the ECU1, to ensure a swift and error-free data transmission.
+### Step 2: Step 2: ID Management
+Upon successful authentication, the admin can seamlessly navigate the system using the UART terminal, enabling the addition of new, authorized IDs. The LCD, empowered by the STM32F103C6, offers an interactive experience, promptly displaying feedback and confirmation of ID inclusions.
 
-### Step 3: ID Validation and Action Execution
+### Step 3: Inter-ECU Communication
+As vehicles aim to traverse the garage boundaries, the associated ECUs (Entrance or Exit) engage the Main ECU to validate the presented ID. The SPI communication, an integral feature of the STM32F103C6, facilitates this interaction:
 
 - **Valid ID Scenario**:
-  - A Welcoming message appears on the LCD, connected to the ECU1, and illuminates to indicate successful validation.
-  - The gate automatically opens, granting vehicle access.
-  - The system enters a standby mode, with the ECU1 continuously reading the motion sensor.
-  - As the motion sensor detects the vehicle's movement, the gate begins its closing sequence.
-  
+  - Post verification, the Main ECU affirms the ID's legitimacy and transmits a "valid" flag to the inquiring ECU. This acknowledgment induces the desired reaction at the respective boundary – primarily, the initiation of the gate mechanism.
+
 - **Invalid ID Scenario**:
-  - The LCD screen, driven by the ECU1, promptly flashes an "ID not valid access" message.
-  - A buzzer, interfaced with the ECU1, gets triggered, notifying the user of an access denial.
- 
-In both scenarios **(valid or invalid)** the ECU2 ensures that the admin dashboard gets timely notifications for real-time system monitoring.
+  - In case of ID discrepancies, the Main ECU promptly relays an "invalid" signal to the querying ECU. Such instances ensure the gate's sustained closure and activation of associated alert systems, such as buzzers or LEDs, indicating an unauthorized endeavor.
+
+Every ID verification, be it valid or otherwise, is diligently recorded and available for review from the admin dashboard, embodying a layer of transparency and control.
