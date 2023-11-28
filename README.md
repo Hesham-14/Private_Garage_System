@@ -13,15 +13,14 @@ Users who wish to enter the garage present their ID through an RFID system. This
 
 #### Upon successful ID validation:
 - The garage gate opens.
-- A green LED indicator illuminates, signaling authorized access.
+- LCD Welcoming message, signaling authorized access.
 - The system waits for a signal from the motion sensor, confirming the vehicle's passage.
 - Once the vehicle has passed, the gate automatically closes.
 - During this process, the admin dashboard receives an update on the recent activity.
 
 #### Should the ID be deemed invalid:
-- A buzzer sounds an alarm.
 - The system displays an "ID not valid" message.
-- A red LED lights up to indicate unauthorized access.
+- - A warning alarm gets turned on using a buzzer.
 - The admin dashboard is immediately updated with this failed access attempt.
 
 Exiting the garage follows a similar pattern. The client presents their ID via RFID to the **Exit Gate ECU**. The ID is then verified with the System Control ECU. If the ID is valid, the exit gate opens, allowing the vehicle to leave. If not, the admin is notified without the gate opening.
